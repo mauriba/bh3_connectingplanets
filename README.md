@@ -12,3 +12,10 @@ collaboration while also documenting our work.
 2. Reboot the active network component (router, switch) whose config has changed.
 3. Copy the newly committed config from the git repo.
 4. Paste or import the config into the network component.
+
+## Naming conventions
+
+Network Space: an uppercase string
+Routers: `R-[space]-[num]` with num being a 2-digit number starting from 01
+Switches: `S-[space]-[num]` with num being a 2-digit number starting from 01
+Configs: place in `/configs/[router/switch].cfg`
