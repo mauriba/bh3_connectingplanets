@@ -24,5 +24,5 @@ collaboration while also documenting our work.
 
 ## Architectural considerations
 
-We will use a [https://study-ccna.com/cisco-three-layer-hierarchical-model/](three layer hierarchical model)
+We will use a [three layer hierarchical model](https://study-ccna.com/cisco-three-layer-hierarchical-model/)
 as proposed by Cisco.
