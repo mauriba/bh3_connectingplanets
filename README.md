@@ -15,7 +15,9 @@ collaboration while also documenting our work.
 
 ## Naming conventions
 
-Network Space: an uppercase string
-Routers: `R-[space]-[num]` with num being a 2-digit number starting from 01
-Switches: `S-[space]-[num]` with num being a 2-digit number starting from 01
-Configs: place in `/configs/[router/switch].cfg`
+|               | Naming Conventions |
+| ------------- | ------------------- |
+| Network Space | an uppercase string |
+| Routers:      | `R-[space]-[num]` with num being a 2-digit number starting from 01 |
+| Switches:     | `S-[space]-[num]` with num being a 2-digit number starting from 01 |
+| Configs:      | place in `/configs/[router/switch].cfg` |
