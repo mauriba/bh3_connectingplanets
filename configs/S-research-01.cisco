@@ -1,6 +1,7 @@
 ! Set hostname and password
 enable
 configure terminal
+
 ! TODO: Change hostname
 hostname S-research-01
 line console 0
@@ -8,16 +9,16 @@ password cisco
 login
 
 vlan 10
-name research_workstations
+  name research_workstations
 vlan 11
-name research_servers
+  name research_servers
 
 interface range fa0/1-12
-switchport mode access
-switchport access vlan 10
+  switchport mode access
+  switchport access vlan 10
 interface range fa0/13-24
-switchport mode access
-switchport access vlan 11
+  switchport mode access
+  switchport access vlan 11
 
 interface gig0/1
-switchport mode trunk
+  switchport mode trunk
