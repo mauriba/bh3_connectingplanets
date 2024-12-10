@@ -21,3 +21,8 @@ collaboration while also documenting our work.
 | Routers       | `R-[space]-[num]` with num being a 2-digit number starting from 01 |
 | Switches      | `S-[space]-[num]` with num being a 2-digit number starting from 01 |
 | Configs       | place in `/configs/[router/switch].cfg` |
+
+## Architectural considerations
+
+We will use a [https://study-ccna.com/cisco-three-layer-hierarchical-model/](three layer hierarchical model)
+as proposed by Cisco.
