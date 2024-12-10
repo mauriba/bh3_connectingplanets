@@ -1,0 +1,25 @@
+! Set hostname and password
+enable
+configure terminal
+! TODO: Change hostname
+hostname R-core-01
+line console 0
+password cisco
+login
+
+ipv6 unicast-routing
+
+ipv6 router ospf 1
+  router-id 1.1.1.1
+
+interface g0/1/0
+  no shutdown
+  ipv6 address 2001:9:9:10::21/64
+  ipv6 address fe80::1 link-local
+  ipv6 ospf 1 area 0
+
+interface g0/1/1
+  no shutdown
+  ipv6 address 2001:9:9:10::31/64
+  ipv6 address fe80::1 link-local
+  ipv6 ospf 1 area 0
