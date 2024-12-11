@@ -1,0 +1,39 @@
+! Enter configuration mode
+enable
+configure terminal
+
+! General settings
+banner motd #NO Unauthorized Access!!!#
+no ip domain-lookup
+hostname A-residential-01
+line console 0
+password bh3ab
+login
+exit
+enable password bh3ab
+service password-encryption
+
+! Set up VLANs and trunk port (port non-network traffic to router)
+vlan 4
+  name research
+  exit
+
+interface range f0/23-24
+  switchport mode trunk
+  exit
+
+interface range f0/1-22
+  switchport mode access
+  switchport access vlan 4
+  exit
+
+! Deactivate gigabit ports
+vlan 99
+  name deactivate-gigabit
+  exit
+
+interface range g0/1-2
+  switchport mode access
+  switchport access vlan 99
+  shutdown
+  exit
