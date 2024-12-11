@@ -12,3 +12,28 @@ login
 exit
 enable password bh3ab
 service password-encryption
+
+! Set up VLANs and trunk port (port non-network traffic to router)
+vlan 3
+  name research
+  exit
+
+interface range f0/23-24
+  switchport mode trunk
+  exit
+
+interface range f0/1-22
+  switchport mode access
+  switchport access vlan 3
+  exit
+
+! Deactivate gigabit ports
+vlan 99
+  name deactivate-gigabit
+  exit
+
+interface range g0/1-2
+  switchport mode access
+  switchport access vlan 99
+  shutdown
+  exit
