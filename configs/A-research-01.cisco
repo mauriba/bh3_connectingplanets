@@ -1,0 +1,14 @@
+! Enter configuration mode
+enable
+configure terminal
+
+! General settings
+banner motd #NO Unauthorized Access!!!#
+no ip domain-lookup
+hostname A-research-01
+line console 0
+password bh3ab
+login
+exit
+enable password bh3ab
+service password-encryption
