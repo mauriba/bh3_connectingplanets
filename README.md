@@ -15,14 +15,11 @@ collaboration while also documenting our work.
 
 ## Naming conventions
 
-|               | Naming Conventions |
-| ------------- | ------------------- |
-| Network Space | an uppercase string |
-| Routers       | `R-[space]-[num]` with num being a 2-digit number starting from 01 |
-| Switches      | `S-[space]-[num]` with num being a 2-digit number starting from 01 |
-| Configs       | place in `/configs/[router/switch].cfg` |
+|           | Naming Conventions                                |
+| --------- | ------------------------------------------------- |
+| Space     | a lowercase string                                |
+| Layer     | `A/D/C` for Access, Distribution or Core Layer    |
+| Number    | two-digit increment starting from `01`            |
 
-## Architectural considerations
-
-We will use a [three layer hierarchical model](https://study-ccna.com/cisco-three-layer-hierarchical-model/)
-as proposed by Cisco.
+Use these conventions to name active network components as follows:
+`[Layer]-[Space]-[Number]`. Store its configuration in `config/[Layer]-[Space]-[Number].cisco`.

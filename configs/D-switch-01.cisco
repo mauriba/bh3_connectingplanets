@@ -1,0 +1,48 @@
+! Enter configuration mode
+enable
+configure terminal
+
+! General settings
+banner motd #NO Unauthorized Access!!!#
+no ip domain-lookup
+hostname D-switch-01
+line console 0
+password bh3ab
+login
+exit
+enable password bh3ab
+service password-encryption
+
+! Enable SSH for multilayer switches and routers
+ip domain name spaceone-corp.com
+username admin password bh3ab
+crypto key zeroize rsa
+yes
+crypto key generate rsa
+1024
+line vty 0 15
+login local
+transport input ssh
+exit
+ip ssh version 2
+
+! Every access switch underneath this distribution switch
+! will be connected via trunk ports
+interface range g1/0/1-24
+  switchport mode trunk
+  switchport trunk native vlan 90
+  no shutdown
+  exit
+
+vlan 3
+  name research
+vlan 4
+  name residential
+vlan 5
+  name greenhouses
+vlan 6
+  name resources
+  exit
+vlan 90
+  name native
+  exit
