@@ -25,3 +25,56 @@ login local
 transport input ssh
 exit
 ip ssh version 2
+
+! Every access switch underneath this distribution switch
+! will be connected via trunk ports
+interface range gig1/0/3-24
+  switchport mode trunk
+  exit
+
+vlan 3
+  name research
+vlan 4
+  name residential
+vlan 5
+  name greenhouses
+vlan 6
+  name resources
+  exit
+
+ipv6 unicast-routing
+
+! Turn the first port into L3 port
+interface gig1/0/1
+  no switchport
+  ipv6 address 2001:9:9:1::101/64
+  ipv6 address fe80::101 link-local
+  no shutdown
+
+! Enable OSPFv3
+ipv6 router ospf 1
+  ! Change to 1.1.1.2 for D-switch-02
+  ! Change to 1.1.10.1 for C-router-01
+  router-id 1.1.1.1
+
+! Inter-VLAN routing
+interface vlan 3
+  no shutdown
+  ipv6 address 2001:9:9:3::1/64
+  ipv6 ospf 1 area 0
+  exit
+interface vlan 4
+  no shutdown
+  ipv6 address 2001:9:9:4::1/64
+  ipv6 ospf 1 area 0
+  exit
+interface vlan 5
+  no shutdown
+  ipv6 address 2001:9:9:5::1/64
+  ipv6 ospf 1 area 0
+  exit
+interface vlan 6
+  no shutdown
+  ipv6 address 2001:9:9:6::1/64
+  ipv6 ospf 1 area 0
+  exit
