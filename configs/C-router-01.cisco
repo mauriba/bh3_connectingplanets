@@ -38,6 +38,16 @@ ipv6 dhcp pool RESIDENTIAL_POOL
   address prefix 2001:9:9:4::/64
   exit
 
+ipv6 dhcp pool GREENHOUSES_POOL
+  domain-name spaceone-corp.com
+  address prefix 2001:9:9:5::/64
+  exit
+
+ipv6 dhcp pool RESOURCES_POOL
+  domain-name spaceone-corp.com
+  address prefix 2001:9:9:6::/64
+  exit
+
 interface g0/0/1
   no shutdown
 
@@ -54,5 +64,21 @@ interface g0/0/1.4
   ipv6 address 2001:9:9:4::1/64
   ipv6 address fe80::1 link-local
   ipv6 dhcp server RESIDENTIAL_POOL
+  ipv6 nd managed-config-flag
+  no shutdown
+
+interface g0/0/1.5
+  encapsulation dot1Q 5
+  ipv6 address 2001:9:9:5::1/64
+  ipv6 address fe80::1 link-local
+  ipv6 dhcp server GREENHOUSES_POOL
+  ipv6 nd managed-config-flag
+  no shutdown
+
+interface g0/0/1.6
+  encapsulation dot1Q 6
+  ipv6 address 2001:9:9:6::1/64
+  ipv6 address fe80::1 link-local
+  ipv6 dhcp server RESOURCES_POOL
   ipv6 nd managed-config-flag
   no shutdown
