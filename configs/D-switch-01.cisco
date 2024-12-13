@@ -45,6 +45,9 @@ vlan 5
 vlan 6
   name resources
   exit
+vlan 7
+  name server
+  exit
 vlan 90
   name native
   exit
