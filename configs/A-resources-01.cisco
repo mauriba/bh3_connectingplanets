@@ -36,6 +36,6 @@ interface f0/24
 
 interface range g0/1-2
   switchport mode trunk
-  switrchport trunk native vlan 90
+  switchport trunk native vlan 90
   no shutdown
   exit
