@@ -14,12 +14,13 @@ enable password bh3ab
 service password-encryption
 
 ! Set up VLANs and trunk port (port non-network traffic to router)
+vlan 2
+  name wifi
 vlan 4
   name residential
   exit
-
-vlan 2
-  name wifi
+vlan 90
+  name native
 
 interface range f0/1-23
   switchport mode access
@@ -35,5 +36,6 @@ interface f0/24
 
 interface range g0/1-2
   switchport mode trunk
+  switchport trunk native vlan 90
   no shutdown
   exit

@@ -28,6 +28,12 @@ ip ssh version 2
 
 ipv6 unicast-routing
 
+! Define IPv6 DHCP pools for each VLAN
+ipv6 dhcp pool WIFI_POOL
+  domain-name spaceone-corp.com
+  address prefix 2001:9:9:2::/64
+  exit
+
 ipv6 dhcp pool RESEARCH_POOL
   domain-name spaceone-corp.com
   address prefix 2001:9:9:3::/64
@@ -48,11 +54,8 @@ ipv6 dhcp pool RESOURCES_POOL
   address prefix 2001:9:9:6::/64
   exit
 
-ipv6 dhcp pool WIFI_POOL
-  domain-name spaceone-corp.com
-  address prefix 2001:9:9:2::/64
-  exit
-
+! The distribution switch is connected to g0/0/1
+! Configure subinterfaces g0/0/1.X for each VLAN
 interface g0/0/1
   no shutdown
 
