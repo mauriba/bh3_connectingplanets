@@ -18,9 +18,18 @@ vlan 5
   name research
   exit
 
-interface range f0/1-24
+vlan 2
+  name wifi
+
+interface range f0/1-23
   switchport mode access
   switchport access vlan 5
+  no shutdown
+  exit
+
+interface f0/24
+  switchport mode access
+  switchport access vlan 2
   no shutdown
   exit
 
