@@ -33,5 +33,5 @@ Go to `AP > Config > INTERFACES > Port 1` and set the following settings:
 2. 2.4 GHz Channel:         6
 3. Coverage Range (meters): 140.00
 4. Authentiation:           WPA2-PSK
-5. PSK Pass Phrase:         bh3ab
+5. PSK Pass Phrase:         wifi@bh3ab
 6. Encryption Type:         AES
