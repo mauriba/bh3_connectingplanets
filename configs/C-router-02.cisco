@@ -5,7 +5,7 @@ configure terminal
 ! General settings
 banner motd #NO Unauthorized Access!!!#
 no ip domain-lookup
-hostname C-router-01
+hostname C-router-02
 line console 0
 password bh3ab
 login
@@ -61,12 +61,13 @@ interface g0/0/1
 
 interface g0/0/1.2
   encapsulation dot1Q 2
-  ipv6 address 2001:9:9:2::1/64
-  ipv6 address fe80::1 link-local
+  ipv6 address 2001:9:9:2::3/64
   ipv6 dhcp server WIFI_POOL
   ipv6 nd managed-config-flag
   standby version 2
   standby 2 ipv6 autoconfig
+  standby 2 priority 110
+  standby 2 preempt
   no shutdown
 
 interface g0/0/1.3
