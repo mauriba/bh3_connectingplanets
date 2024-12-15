@@ -1,7 +1,31 @@
 enable
 configure terminal
 
-hostname A-main-04
+hostname "A-main-04"
+
+! General settings
+banner motd #NO Unauthorized Access!!!#
+no ip domain-lookup
+line console 0
+password bh3ab
+login
+exit
+enable password bh3ab
+service password-encryption
+
+! APs are to be connected to f0/24, hence VLAN 2 by default
+interface f0/24
+  switchport mode access
+  switchport access vlan 2
+  no shutdown
+  exit
+
+! Trunk ports to both distribution switches
+interface range g0/1-2
+  switchport mode trunk
+  switchport trunk native vlan 90
+  no shutdown
+  exit
 
 interface range f0/1-23
   switchport mode access
