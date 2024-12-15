@@ -15,11 +15,14 @@ collaboration while also documenting our work.
 
 ## Naming conventions
 
-|           | Naming Conventions                                |
-| --------- | ------------------------------------------------- |
-| Space     | a lowercase string                                |
-| Layer     | `A/D/C` for Access, Distribution or Core Layer    |
-| Number    | two-digit increment starting from `01`            |
+|               | Naming Conventions                                                    |
+| ------------- | --------------------------------------------------------------------- |
+| Space         | a lowercase string                                                    |
+| Layer         | `A/D/C` for Access, Distribution or Core Layer                        |
+| Redundancy    | either `common` or a two-digit increment starting from `01`           |
+
+Note: a config file with the suffix `common` means that it should be used for all redundant
+devices of that particular space and layer.
 
 Use these conventions to name active network components as follows:
-`[Layer]-[Space]-[Number]`. Store its configuration in `config/[Layer]-[Space]-[Number].cisco`.
+`[Layer]-[Space]-[Redundancy]`. Store its configuration in `config/[Layer]-[Space]-[Redundancy].cisco`.
