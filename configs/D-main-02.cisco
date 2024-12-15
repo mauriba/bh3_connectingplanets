@@ -27,6 +27,7 @@ interface vlan 2
   ! Address of the DHCP server
   ip helper-address 10.1.7.4
   standby 2 ip 10.1.2.1
+  standby 2 preempt
   no shutdown
 
 interface vlan 3
@@ -35,6 +36,7 @@ interface vlan 3
   ip helper-address 10.1.7.4
   standby 3 ip 10.1.3.1
   standby 3 track g1/0/3
+  standby 3 preempt
   no shutdown
 
 interface vlan 4
@@ -43,6 +45,7 @@ interface vlan 4
   ip helper-address 10.1.7.4
   standby 4 ip 10.1.4.1
   standby 4 track g1/0/4
+  standby 4 preempt
   no shutdown
 
 interface vlan 5

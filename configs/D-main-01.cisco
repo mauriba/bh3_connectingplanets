@@ -57,6 +57,7 @@ interface vlan 5
   ip helper-address 10.1.7.4
   standby 5 ip 10.1.5.1
   standby 5 track g1/0/5
+  standby 5 preempt
   no shutdown
 
 interface vlan 6
@@ -65,6 +66,7 @@ interface vlan 6
   ip helper-address 10.1.7.4
   standby 6 ip 10.1.6.1
   standby 6 track g1/0/6
+  standby 6 preempt
   no shutdown
 
 interface vlan 7
@@ -72,4 +74,5 @@ interface vlan 7
   ! Servers use static IPs, no need for DHCP
   standby 7 ip 10.1.7.1
   standby 7 track g1/0/7
+  standby 7 preempt
   no shutdown
