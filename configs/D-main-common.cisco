@@ -29,27 +29,27 @@ ip ssh version 2
 ! will be connected via trunk ports
 interface range g1/0/3-24
   switchport mode trunk
-  switchport trunk native vlan 90
   no shutdown
   exit
 
 ! Defining VLANs
 vlan 2
   name wifi
+  exit
 vlan 3
   name research
+  exit
 vlan 4
   name residential
+  exit
 vlan 5
   name greenhouses
+  exit
 vlan 6
   name resources
   exit
 vlan 7
   name server
-  exit
-vlan 90
-  name native
   exit
 
 ! OSPF configuration for routing the subnets

@@ -13,6 +13,13 @@ hostname A-main-06
 !enable password bh3ab
 !service password-encryption
 
+vlan 2
+  name wifi
+  exit
+vlan 6
+  name resources
+  exit
+
 ! APs are to be connected to f0/24, hence VLAN 2 by default
 interface f0/24
   switchport mode access
@@ -23,7 +30,6 @@ interface f0/24
 ! Trunk ports to both distribution switches
 interface range g0/1-2
   switchport mode trunk
-  switchport trunk native vlan 90
   no shutdown
   exit
 
