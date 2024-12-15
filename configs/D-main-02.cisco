@@ -1,0 +1,22 @@
+enable
+configure terminal
+
+hostname "D-main-02"
+
+! Set up routing interfaces connected to the Core Layer
+interface g1/0/1
+  no switchport
+  ip address 10.1.0.13 255.255.255.252
+  no shutdown
+  exit
+
+interface g1/0/2
+  no switchport
+  ip address 10.1.0.17 255.255.255.252
+  no shutdown
+  exit
+
+! OSPF configuration for routing the subnets
+ip routing
+router ospf 10
+  router-id 10.1.0.2
