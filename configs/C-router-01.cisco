@@ -2,16 +2,16 @@
 enable
 configure terminal
 
-! General settings
-banner motd #NO Unauthorized Access!!!#
-no ip domain-lookup
-hostname C-router-01
-line console 0
-password bh3ab
-login
-exit
-enable password bh3ab
-service password-encryption
+!! General settings
+!banner motd #NO Unauthorized Access!!!#
+!no ip domain-lookup
+!hostname C-router-01
+!line console 0
+!password bh3ab
+!login
+!exit
+!enable password bh3ab
+!service password-encryption
 
 ! Enable SSH for multilayer switches and routers
 ip domain name spaceone-corp.com
