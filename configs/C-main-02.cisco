@@ -1,0 +1,44 @@
+! Enter configuration mode
+enable
+configure terminal
+
+hostname C-main-02
+
+!! General settings
+!banner motd #NO Unauthorized Access!!!#
+!no ip domain-lookup
+!line console 0
+!password bh3ab
+!login
+!exit
+!enable password bh3ab
+!service password-encryption
+
+! Enable SSH for multilayer switches and routers
+ip domain name spaceone-corp.com
+username admin password bh3ab
+crypto key zeroize rsa
+yes
+crypto key generate rsa
+1024
+line vty 0 15
+login local
+transport input ssh
+exit
+ip ssh version 2
+
+interface g0/1
+  ip address 10.1.0.10 255.255.255.252
+  ip ospf 10 area 0
+  no shutdown
+  exit
+
+interface g0/2
+  ip address 10.1.0.18 255.255.255.252
+  ip ospf 10 area 0
+  no shutdown
+  exit
+
+ip routing
+router ospf 10
+  router-id 10.0.0.2
