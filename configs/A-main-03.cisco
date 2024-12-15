@@ -1,0 +1,10 @@
+enable
+configure terminal
+
+hostname A-main-03
+
+interface range f0/1-23
+  switchport mode access
+  switchport access vlan 3
+  no shutdown
+  exit

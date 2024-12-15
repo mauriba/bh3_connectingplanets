@@ -5,7 +5,6 @@ configure terminal
 ! General settings
 banner motd #NO Unauthorized Access!!!#
 no ip domain-lookup
-hostname A-residential-01
 line console 0
 password bh3ab
 login
@@ -13,27 +12,14 @@ exit
 enable password bh3ab
 service password-encryption
 
-! Set up VLANs and trunk port (port non-network traffic to router)
-vlan 2
-  name wifi
-vlan 4
-  name residential
-  exit
-vlan 90
-  name native
-
-interface range f0/1-23
-  switchport mode access
-  switchport access vlan 4
-  no shutdown
-  exit
-
+! APs are to be connected to f0/24, hence VLAN 2 by default
 interface f0/24
   switchport mode access
   switchport access vlan 2
   no shutdown
   exit
 
+! Trunk ports to both distribution switches
 interface range g0/1-2
   switchport mode trunk
   switchport trunk native vlan 90
