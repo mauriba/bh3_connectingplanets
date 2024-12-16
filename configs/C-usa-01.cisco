@@ -2,7 +2,7 @@
 enable
 configure terminal
 
-hostname C-china-01
+hostname C-usa-01
 
 !! General settings
 !banner motd #NO Unauthorized Access!!!#
@@ -32,21 +32,21 @@ interface range fa0/0-1
   no shutdown
 
 interface fa0/0
-  ip address 10.4.0.1 255.255.255.0
+  ip address 10.2.0.1 255.255.255.0
   exit
 
 interface g0/0/0
-  ip address 10.0.0.33 255.255.255.252
+  ip address 10.0.0.25 255.255.255.252
   ip ospf 10 area 0
   no shutdown
   exit
 
 interface g0/1/0
-  ip address 10.0.0.30 255.255.255.252
+  ip address 10.0.0.22 255.255.255.252
   ip ospf 10 area 0
   no shutdown
   exit
 
 router ospf 10
-  router-id 10.0.0.33
-  network 10.4.0.0 0.0.0.255 area 0
+  router-id 10.0.0.25
+  network 10.2.0.0 0.0.0.255 area 0

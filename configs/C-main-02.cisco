@@ -41,5 +41,17 @@ interface fa0/1
   ip ospf 10 area 0
   exit
 
+interface g0/0/0
+  ip address 10.0.0.21 255.255.255.252
+  ip ospf 10 area 0
+  no shutdown
+  exit
+
+interface g0/1/0
+  ip address 10.0.0.38 255.255.255.252
+  ip ospf 10 area 0
+  no shutdown
+  exit
+
 router ospf 10
   router-id 10.0.0.45
