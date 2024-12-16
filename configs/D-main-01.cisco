@@ -3,23 +3,25 @@ configure terminal
 
 hostname "D-main-01"
 
+interface range g1/0/1-2
+  no switchport
+  no shutdown
+
 ! Set up routing interfaces connected to the Core Layer
 interface g1/0/1
-  no switchport
   ip address 10.1.0.5 255.255.255.252
-  no shutdown
+  ip ospf 10 area 0
   exit
 
 interface g1/0/2
-  no switchport
   ip address 10.1.0.9 255.255.255.252
-  no shutdown
+  ip ospf 10 area 0
   exit
 
 ! OSPF configuration for routing the subnets
 ip routing
 router ospf 10
-  router-id 10.1.0.1
+  router-id 10.1.0.9
 
 ! Inter-VLAN routing with HSRP
 interface vlan 2
