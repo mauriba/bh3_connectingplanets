@@ -27,18 +27,26 @@ transport input ssh
 exit
 ip ssh version 2
 
+interface range g0/0-2
+  no shutdown
+
 interface g0/1
   ip address 10.1.0.10 255.255.255.252
   ip ospf 10 area 0
-  no shutdown
   exit
 
 interface g0/2
   ip address 10.1.0.18 255.255.255.252
   ip ospf 10 area 0
-  no shutdown
+  exit
+
+! Interface to earth
+interface g0/0
+  ip address 10.0.0.45 255.255.255.252
+  ip ospf 10 area 0
   exit
 
 ip routing
+
 router ospf 10
-  router-id 10.0.0.2
+  router-id 10.0.0.10

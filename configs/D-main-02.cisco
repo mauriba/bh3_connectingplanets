@@ -21,7 +21,7 @@ interface g1/0/2
 ! OSPF configuration for routing the subnets
 ip routing
 router ospf 10
-  router-id 10.1.0.2
+  router-id 10.1.0.13
 
 ! Inter-VLAN routing with HSRP
 interface vlan 2

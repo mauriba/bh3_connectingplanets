@@ -1,7 +1,7 @@
 enable
 configure terminal
 
-ip routing
+hostname C-earth-01
 
 interface g0/0/0
   no shutdown
@@ -13,3 +13,21 @@ interface g0/0/0.10
 interface g0/0/0.11
   encapsulation dot1Q 11
   ip address 10.5.11.1 255.255.255.0
+
+interface g0/0/1
+  ip address 10.0.0.42 255.255.255.252
+  ip ospf 10 area 0
+  no shutdown
+  exit
+
+interface g0/0/2
+  ip address 10.0.0.46 255.255.255.252
+  ip ospf 10 area 0
+  no shutdown
+  exit
+
+ip routing
+router ospf 10
+  router-id 10.0.0.42
+  network 10.5.10.0 0.0.0.255 area 0
+  network 10.5.11.0 0.0.0.255 area 0
