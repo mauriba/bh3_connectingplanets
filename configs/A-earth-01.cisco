@@ -1,0 +1,21 @@
+enable
+configure terminal
+
+hostname A-earth-01
+
+vlan 10
+  name Research
+vlan 11
+  name Private
+
+interface fa0/1
+  switchport mode access
+  switchport access vlan 10
+
+interface fa0/2
+  switchport mode access
+  switchport access vlan 11
+
+interface g0/1
+  switchport mode trunk
+  no shutdown

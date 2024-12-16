@@ -2,16 +2,15 @@
 enable
 configure terminal
 
-! General settings
-banner motd #NO Unauthorized Access!!!#
-no ip domain-lookup
-hostname D-switch-01
-line console 0
-password bh3ab
-login
-exit
-enable password bh3ab
-service password-encryption
+!! General settings
+!banner motd #NO Unauthorized Access!!!#
+!no ip domain-lookup
+!line console 0
+!password bh3ab
+!login
+!exit
+!enable password bh3ab
+!service password-encryption
 
 ! Enable SSH for multilayer switches and routers
 ip domain name spaceone-corp.com
@@ -28,26 +27,36 @@ ip ssh version 2
 
 ! Every access switch underneath this distribution switch
 ! will be connected via trunk ports
-interface range g1/0/1-24
+interface range g1/0/3-24
   switchport mode trunk
-  switchport trunk native vlan 90
   no shutdown
   exit
 
+! Defining VLANs
 vlan 2
   name wifi
+  exit
 vlan 3
   name research
+  exit
 vlan 4
   name residential
+  exit
 vlan 5
   name greenhouses
+  exit
 vlan 6
   name resources
   exit
 vlan 7
   name server
   exit
-vlan 90
-  name native
-  exit
+
+! OSPF configuration for routing the subnets
+router ospf 10
+  network 10.1.2.0 0.0.0.255 area 0
+  network 10.1.3.0 0.0.0.255 area 0
+  network 10.1.4.0 0.0.0.255 area 0
+  network 10.1.5.0 0.0.0.255 area 0
+  network 10.1.6.0 0.0.0.255 area 0
+  network 10.1.7.0 0.0.0.255 area 0
