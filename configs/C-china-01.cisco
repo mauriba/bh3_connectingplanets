@@ -2,7 +2,7 @@
 enable
 configure terminal
 
-hostname C-main-02
+hostname C-china-01
 
 !! General settings
 !banner motd #NO Unauthorized Access!!!#
@@ -28,18 +28,19 @@ transport input ssh
 exit
 ip ssh version 2
 
-interface range fa0/0-1
+interface fa0/0
   no shutdown
 
 interface fa0/0
-  ip address 10.1.0.10 255.255.255.252
-  ip ospf 10 area 0
+  ip address 10.4.0.1 255.255.255.0
   exit
 
-interface fa0/1
-  ip address 10.1.0.18 255.255.255.252
+interface g3/0
+  ip address 10.0.0.33 255.255.255.252
   ip ospf 10 area 0
+  no shutdown
   exit
 
 router ospf 10
-  router-id 10.0.0.45
+  router-id 10.0.0.42
+  network 10.4.0.0 0.0.0.255 area 0
