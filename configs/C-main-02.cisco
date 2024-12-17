@@ -53,5 +53,12 @@ interface g0/1/0
   no shutdown
   exit
 
+interface se1/0/0
+  ip address 10.0.0.45 255.255.255.252
+  ip ospf 10 area 0
+  no shutdown
+  ip ospf cost 1000
+  exit
+
 router ospf 10
   router-id 10.0.0.45
