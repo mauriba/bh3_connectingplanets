@@ -3,15 +3,15 @@ configure terminal
 
 hostname "A-main-04"
 
-!! General settings
-!banner motd #NO Unauthorized Access!!!#
-!no ip domain-lookup
-!line console 0
-!password bh3ab
-!login
-!exit
-!enable password bh3ab
-!service password-encryption
+! General settings
+banner motd #NO Unauthorized Access!!!#
+no ip domain-lookup
+line console 0
+password bh3ab
+login
+exit
+enable password bh3ab
+service password-encryption
 
 vlan 2
   name wifi
